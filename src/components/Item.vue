@@ -38,60 +38,46 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, PropType, ref } from "vue";
-import { useStore } from "vuex";
-import { Todo } from "../types/Todo";
+<script lang="ts" setup>
+import { PropType, ref } from 'vue'
+import { useStore } from 'vuex'
+import { Todo } from "../types/Todo"
 
-export default defineComponent({
-  name: "Item",
-
-  props: {
-    todo: {
-      type: Object as PropType<Todo>,
-      default: () => ({})
-    }
-  },
-
-  setup(props) {
-    const store = useStore();
-    const title = ref(props.todo.title)
-    const isCompleted = ref(props.todo.completed)
-
-    const updateTodo = () => {
-      if (!title.value) {
-        return
-      }
-
-      store.dispatch('updateTodo', {
-        id: props.todo.id,
-        data: {
-          title: title.value,
-          completed: isCompleted.value
-        }
-      })
-    }
-
-    const markAsComplete = () => {
-      isCompleted.value = !isCompleted.value;
-      updateTodo()
-    }
-
-    const deleteTodo = () => {
-      store.dispatch('deleteTodo', {
-        id: props.todo.id
-      })
-    }
-
-    return {
-      title,
-      isCompleted,
-      updateTodo,
-      markAsComplete,
-      deleteTodo
-    }
+const props = defineProps({
+  todo: {
+    type: Object as PropType<Todo>,
+    default: () => ({})
   }
 })
+
+const store = useStore();
+const title = ref(props.todo.title)
+const isCompleted = ref(props.todo.completed)
+
+const updateTodo = () => {
+  if (!title.value) {
+    return
+  }
+
+  store.dispatch('updateTodo', {
+    id: props.todo.id,
+    data: {
+      title: title.value,
+      completed: isCompleted.value
+    }
+  })
+}
+
+const markAsComplete = () => {
+  isCompleted.value = !isCompleted.value;
+  updateTodo()
+}
+
+const deleteTodo = () => {
+  store.dispatch('deleteTodo', {
+    id: props.todo.id
+  })
+}
 </script>
 
 <style scoped lang="scss">
@@ -156,5 +142,4 @@ export default defineComponent({
 .done {
   color: green;
 }
-
 </style>
