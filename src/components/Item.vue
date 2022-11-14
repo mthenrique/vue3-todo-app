@@ -104,13 +104,12 @@ const deleteTodo = () => {
     border-radius: 5px;
     cursor: default;
 
-  }
-
-  input:focus {
-    border: none;
-    outline: none;
-    cursor: text;
-    border-left: 3px solid green;
+    &:focus {
+      border: none;
+      outline: none;
+      cursor: text;
+      border-left: 3px solid green;
+    }
   }
 
   .icon {

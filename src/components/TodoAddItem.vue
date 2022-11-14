@@ -46,35 +46,34 @@ const onSubmit = () => {
     width: 100%;
 
     border-radius: 5px;
-  }
 
-  .form-input span {
-    padding: 0 10px;
-    font-weight: bold;
-    font-size: 12px;
-    cursor: pointer;
-  }
+    span {
+      padding: 0 10px;
+      font-weight: bold;
+      font-size: 12px;
+      cursor: pointer;
+    }
 
-  input {
-    display: block;
-    width: 100%;
-    border: none;
-    outline: none;
+    input {
+      display: block;
+      width: 100%;
+      border: none;
+      outline: none;
 
-    padding: 10px 10px;
+      padding: 10px 10px;
 
-    font-size: 14px;
-    font-weight: bold;
+      font-size: 14px;
+      font-weight: bold;
 
-    border-radius: 5px;
-    cursor: default;
-    background: rgb(80, 80, 80);
-    
-  }
-
-  input:focus {
-    border: none;
-    outline: none;
-    cursor: text;
+      border-radius: 5px;
+      cursor: default;
+      background: rgb(80, 80, 80);
+      
+      &:focus {
+        border: none;
+        outline: none;
+        cursor: text;
+      }
+    }
   }
 </style>
