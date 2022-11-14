@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "dev:server": "json-server --watch ./src/api/db.json",
+    "dev:db": "json-server --watch ./src/api/db.json",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview"
   },
