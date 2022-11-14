@@ -89,7 +89,7 @@ $ yarn dev
 
 As seguintes ferramentas foram usadas na construção do projeto:
 
-#### **FrontEnd** ([Vue3](https://nodejs.org/en/) + [TypeScript](https://www.typescriptlang.org/))
+#### **FrontEnd** ([Vue.js 3](https://nodejs.org/en/) + [TypeScript](https://www.typescriptlang.org/))
 
 - **Vue.js 3**
   - *Composition API*
