@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1>ToDo APP</h1>
+    <h1 class="title">ToDo APP</h1>
     
     <Loading v-if="loading"/>
 
@@ -46,6 +46,10 @@ loading.value = false
 
   display: flex;
   flex-direction: column;
+
+  .title {
+    text-align: center;
+  }
 }
 
 .options {
