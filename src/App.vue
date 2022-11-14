@@ -1,8 +1,8 @@
 <template>
-  <nav>
+  <!-- <nav>
     <RouterLink to="/">Home </RouterLink>|
     <RouterLink to="/user">User</RouterLink>
-  </nav>
+  </nav> -->
   <router-view />
   <!-- <BaseAlert 
     message='Teste componente Alert!'
