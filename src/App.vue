@@ -15,21 +15,12 @@
   /> -->
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
-import BaseAlert from "./components/BaseAlert.vue";
+<script lang="ts" setup>
+import BaseAlert from './components/BaseAlert.vue'
 
-export default defineComponent({
-  components: {
-    BaseAlert
-  },
-
-  methods: {
-    onClose() {
-      console.log('fechou o alerta')
-    }
-  },
-})
+const onClose = () => {
+  console.log('fechou o alerta')
+}
 </script>
   
 <style scoped>
