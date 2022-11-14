@@ -34,44 +34,11 @@ const onSubmit = () => {
 }
 </script>
 
-<!-- <script lang="ts">
-import { defineComponent, ref } from "vue"
-import { useStore } from "vuex";
-
-export default defineComponent({
-  name: 'TodoAddItem',
-
-  setup() {
-    const store = useStore();
-    const title = ref('')
-
-    const onSubmit = () => {
-      if(!title.value) {
-        return false
-      }
-
-      store.dispatch('addTodo', {
-        title: title.value,
-        completed: false
-      })
-
-      title.value = ''
-    }
-
-    return {
-      title,
-      onSubmit
-    }
-  },
-})
-</script> -->
-
 <style scoped lang="scss">
   form {
     width: 100%;
   }
   .form-input {
-    /* border: 1px solid blue; */
     display: flex;
     align-items: center;
 
