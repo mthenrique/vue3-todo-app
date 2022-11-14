@@ -1,6 +1,6 @@
-import axios from "axios";
-import { createStore } from "vuex";
-import { Todo } from "../types/Todo";
+import axios from 'axios'
+import { createStore } from 'vuex'
+import { Todo } from '../types/Todo'
 
 export default createStore({
   state: {
@@ -45,7 +45,7 @@ export default createStore({
       commit('setTodos', response.data)
     },
 
-    async addTodo({ commit }, payload) {
+    async addTodo({ commit }, payload: Todo) {
       const response = await axios.post('http://localhost:3000/todos', payload)
       commit('setTodo', response.data)
     },
