@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <h1>ToDo APP</h1>
     
     <Loading v-if="loading"/>
 
@@ -19,24 +20,23 @@
 </template>
 
 <script lang="ts" setup>
-import Loading from '../components/Loading.vue';
-import TodoEmpty from '../components/TodoEmpty.vue';
-import TodoAddItem from '../components/TodoAddItem.vue';
-import TodoList from '../components/TodoList.vue';
+import Loading from '../components/Loading.vue'
+import TodoEmpty from '../components/TodoEmpty.vue'
+import TodoAddItem from '../components/TodoAddItem.vue'
+import TodoList from '../components/TodoList.vue'
 
-import { ref } from 'vue';
+import { ref } from 'vue'
 import { useStore } from 'vuex'
 
-const store = useStore();
+const store = useStore()
 
-const loading = ref(false);
-const onlyOpen = ref(false);
+const loading = ref(false)
+const onlyOpen = ref(false)
 
 
-loading.value = true;
-store.dispatch('getTodos');
-loading.value = false;
-
+loading.value = true
+store.dispatch('getTodos')
+loading.value = false
 </script>
 
 <style scoped lang="scss">
@@ -54,5 +54,4 @@ loading.value = false;
   gap: 5px;
   padding: 5px 0;
 }
-
 </style>
