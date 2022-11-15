@@ -1,20 +1,20 @@
 <template>
   <div class="container">
     <h1 class="title">ToDo APP</h1>
-    
-    <Loading v-if="loading"/>
+
+    <Loading v-if="loading" />
 
     <template v-else>
       <TodoAddItem />
 
       <div class="options">
-        <input type="checkbox" v-model="onlyOpen">
+        <input v-model="onlyOpen" type="checkbox" />
         <span>Exibir apenas tarefas em aberto.</span>
       </div>
 
-      <TodoList v-if="$store.state.todos.length" :onlyOpen="onlyOpen" />
-      
-      <TodoEmpty v-else/>
+      <TodoList v-if="$store.state.todos.length" :only-open="onlyOpen" />
+
+      <TodoEmpty v-else />
     </template>
   </div>
 </template>
@@ -32,7 +32,6 @@ const store = useStore()
 
 const loading = ref(false)
 const onlyOpen = ref(false)
-
 
 loading.value = true
 store.dispatch('getTodos')

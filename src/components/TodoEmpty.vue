@@ -1,11 +1,9 @@
 <template>
-  <div class="todo-empty">
-    Você ainda não tem tarefas...
-  </div>
+  <div class="todo-empty">Você ainda não tem tarefas...</div>
 </template>
 
 <script lang="ts" setup>
-  //
+//
 </script>
 
 <style scoped lang="scss">

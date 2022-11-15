@@ -2,11 +2,11 @@
   <form @submit.stop.prevent="onSubmit">
     <div class="form-input">
       <input
+        id="newTodo"
+        v-model="title"
         type="text"
         name="newTodo"
-        id="newTodo"
         placeholder="Adicione um novo item..."
-        v-model="title"
       />
       <span @click="onSubmit">ADICIONAR</span>
     </div>
@@ -14,20 +14,20 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue"
-import { useStore } from "vuex";
+import { ref } from 'vue'
+import { useStore } from 'vuex'
 
-const store = useStore();
+const store = useStore()
 const title = ref('')
 
 const onSubmit = () => {
-  if(!title.value) {
+  if (!title.value) {
     return false
   }
 
   store.dispatch('addTodo', {
     title: title.value,
-    completed: false
+    completed: false,
   })
 
   title.value = ''
@@ -35,45 +35,45 @@ const onSubmit = () => {
 </script>
 
 <style scoped lang="scss">
-  form {
-    width: 100%;
-  }
-  .form-input {
-    display: flex;
-    align-items: center;
+form {
+  width: 100%;
+}
+.form-input {
+  display: flex;
+  align-items: center;
 
-    background: rgb(80, 80, 80);
+  background: rgb(80, 80, 80);
+  width: 100%;
+
+  border-radius: 5px;
+
+  span {
+    padding: 0 10px;
+    font-weight: bold;
+    font-size: 12px;
+    cursor: pointer;
+  }
+
+  input {
+    display: block;
     width: 100%;
+    border: none;
+    outline: none;
+
+    padding: 10px 10px;
+
+    font-size: 14px;
+    font-weight: bold;
 
     border-radius: 5px;
+    cursor: default;
+    background: rgb(80, 80, 80);
 
-    span {
-      padding: 0 10px;
-      font-weight: bold;
-      font-size: 12px;
-      cursor: pointer;
-    }
-
-    input {
-      display: block;
-      width: 100%;
+    &:focus {
       border: none;
       outline: none;
-
-      padding: 10px 10px;
-
-      font-size: 14px;
-      font-weight: bold;
-
-      border-radius: 5px;
-      cursor: default;
-      background: rgb(80, 80, 80);
-      
-      &:focus {
-        border: none;
-        outline: none;
-        cursor: text;
-      }
+      cursor: text;
     }
   }
+}
 </style>

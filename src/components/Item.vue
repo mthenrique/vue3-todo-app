@@ -1,22 +1,24 @@
 <template>
   <div class="form-input">
-    <span :class="['icon icon-check', {'done': isCompleted}]" @click="markAsComplete">
-      <svg 
-        fill="none" 
+    <span
+      :class="['icon icon-check', { done: isCompleted }]"
+      @click="markAsComplete"
+    >
+      <svg
+        fill="none"
         stroke="currentColor"
-        viewBox="0 0 24 24" 
+        viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <path 
-          stroke-linecap="round" 
-          stroke-linejoin="round" 
-          stroke-width="2" 
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
           d="M5 13l4 4L19 7"
-        >
-        </path>
+        ></path>
       </svg>
     </span>
-    <span class=" icon icon-delete" @click="deleteTodo">
+    <span class="icon icon-delete" @click="deleteTodo">
       <svg
         viewBox="0 0 24 24"
         fill="none"
@@ -34,23 +36,23 @@
         />
       </svg>
     </span>
-    <input type="text" v-model="title" @keyup.enter="updateTodo">
+    <input type="text" v-model="title" @keyup.enter="updateTodo" />
   </div>
 </template>
 
 <script lang="ts" setup>
 import { PropType, ref } from 'vue'
 import { useStore } from 'vuex'
-import { Todo } from "../types/Todo"
+import { Todo } from '../types/Todo'
 
 const props = defineProps({
   todo: {
     type: Object as PropType<Todo>,
-    default: () => ({})
-  }
+    default: () => ({}),
+  },
 })
 
-const store = useStore();
+const store = useStore()
 const title = ref(props.todo.title)
 const isCompleted = ref(props.todo.completed)
 
@@ -63,80 +65,86 @@ const updateTodo = () => {
     id: props.todo.id,
     data: {
       title: title.value,
-      completed: isCompleted.value
-    }
+      completed: isCompleted.value,
+    },
+  })
+  store.dispatch('updateTodo', {
+    id: props.todo.id,
+    data: {
+      title: title.value,
+      completed: isCompleted.value,
+    },
   })
 }
 
 const markAsComplete = () => {
-  isCompleted.value = !isCompleted.value;
+  isCompleted.value = !isCompleted.value
   updateTodo()
 }
 
 const deleteTodo = () => {
-  store.dispatch('deleteTodo', {
-    id: props.todo.id
-  })
+  const id = props.todo.id
+  store.dispatch('deleteTodo', id)
 }
 </script>
 
 <style scoped lang="scss">
-  .form-input {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-  }
+.form-input {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
 
-  input {
-    display: block;
-    width: 100%;
+input {
+  display: block;
+  width: 100%;
+  border: none;
+  border-left: 3px solid green;
+  outline: none;
+
+  padding: 10px 35px;
+
+  font-size: 14px;
+  font-weight: bold;
+
+  border-radius: 5px;
+  cursor: default;
+
+  &:focus {
     border: none;
-    border-left: 3px solid green;
     outline: none;
-
-    padding: 10px 35px;
-
-    font-size: 14px;
-    font-weight: bold;
-
-    border-radius: 5px;
-    cursor: default;
-
-    &:focus {
-      border: none;
-      outline: none;
-      cursor: text;
-      border-left: 3px solid green;
-    }
+    cursor: text;
+    border-left: 3px solid green;
   }
+}
 
-  .icon {
-    position: absolute;
-    height: 100%;
-    width: 20px;
+.icon {
+  position: absolute;
+  height: 100%;
+  width: 20px;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-    cursor: pointer;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  .icon-check {
-    top: 0;
-    left: 0;
-    margin-left: 5px;
-    color: rgb(83, 83, 83, 0.253);
-  }
+  cursor: pointer;
+}
 
-  .icon-delete {
-    top: 0;
-    right: 0;
-    margin-right: 5px;
-    color: rgba(83, 83, 83);
-  }
+.icon-check {
+  top: 0;
+  left: 0;
+  margin-left: 5px;
+  color: rgb(83, 83, 83, 0.253);
+}
+
+.icon-delete {
+  top: 0;
+  right: 0;
+  margin-right: 5px;
+  color: rgba(83, 83, 83);
+}
 
 .done {
   color: green;

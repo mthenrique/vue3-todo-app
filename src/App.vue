@@ -22,7 +22,5 @@ const onClose = () => {
   console.log('fechou o alerta')
 }
 </script>
-  
-<style scoped>
 
-</style>
+<style scoped></style>
