@@ -34,7 +34,7 @@
 
 Uma simples aplicação para criar uma lista de tarefas. A aplicação permite criar, editar, excluir e marcar como concluída cada uma das tarefas da lista.
 
-Projeto desenvolvido com base na documentação do próprio **[Vue.js](https://vuejs.org/guide/introduction.html)**. 
+Projeto desenvolvido com base na documentação do próprio **[Vue.js](https://vuejs.org/guide/introduction.html)**.
 
 ---
 
@@ -92,9 +92,9 @@ As seguintes ferramentas foram usadas na construção do projeto:
 #### **FrontEnd** ([Vue.js 3](https://nodejs.org/en/) + [TypeScript](https://www.typescriptlang.org/))
 
 - **Vue.js 3**
-  - *Composition API*
-  - *Script Setup - syntactic sugar*
-  - *TypeScript with Composition API*
+  - _Composition API_
+  - _Script Setup - syntactic sugar_
+  - _TypeScript with Composition API_
 - **JSON Server**
 - **Scss**
 - **Vite**
