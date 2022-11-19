@@ -7,8 +7,9 @@
 <script lang="ts" setup>
 import { PropType, ref, watchEffect } from 'vue'
 import { useStore } from 'vuex'
-import { Todo } from '../types/Todo'
-import TodoItem from './TodoItem.vue'
+
+import { Todo } from '@/types/Todo'
+import TodoItem from '@/components/TodoItem.vue'
 
 const props = defineProps({
   onlyOpen: {

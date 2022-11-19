@@ -16,7 +16,7 @@
 <script lang="ts" setup>
 import { PropType, ref } from 'vue'
 import { useStore } from 'vuex'
-import { Todo } from '../types/Todo'
+import { Todo } from '@/types/Todo'
 
 import IconDelete from '@/assets/icon-delete.svg?component'
 import IconCheck from '@/assets/icon-check.svg?component'
