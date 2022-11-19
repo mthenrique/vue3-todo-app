@@ -16,11 +16,11 @@
 </template>
 
 <script lang="ts" setup>
-import BaseAlert from './components/BaseAlert.vue'
+// import BaseAlert from './components/BaseAlert.vue'
 
-const onClose = () => {
-  console.log('fechou o alerta')
-}
+// const onClose = () => {
+//   console.log('fechou o alerta')
+// }
 </script>
 
-<style scoped></style>
+<style scoped lang="scss"></style>

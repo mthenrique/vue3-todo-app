@@ -4,14 +4,15 @@
   </div>
 </template>
 
-<style>
+<style scoped lang="scss">
 .spinner {
   width: 50px;
   height: 50px;
 
   text-align: center;
-}
-.spinner img {
-  width: 100%;
+
+  img {
+    width: 100%;
+  }
 }
 </style>
