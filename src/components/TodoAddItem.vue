@@ -64,6 +64,7 @@ form {
 
     font-size: 14px;
     font-weight: bold;
+    color: white;
 
     border-radius: 5px;
     cursor: default;

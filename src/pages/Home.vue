@@ -1,11 +1,8 @@
 <template>
-  <div>
-    <h1>teste</h1>
-  </div>
   <div class="container">
     <h1 class="title">ToDo APP</h1>
 
-    <Loading v-if="loading" />
+    <BasicLoading v-if="loading" />
 
     <template v-else>
       <TodoAddItem />
@@ -15,7 +12,9 @@
         <span>Exibir apenas tarefas em aberto.</span>
       </div>
 
-      <TodoList v-if="$store.state.todos.length" :only-open="onlyOpen" />
+      <!-- <TodoList v-if="$store.state.todos.length" :only-open="onlyOpen" /> -->
+      <TodoList v-if="hasTodos" :only-open="onlyOpen" />
+      <!-- <TodoList :only-open="onlyOpen" /> -->
 
       <TodoEmpty v-else />
     </template>
@@ -23,10 +22,10 @@
 </template>
 
 <script lang="ts" setup>
-import Loading from '../components/Loading.vue'
-import TodoEmpty from '../components/TodoEmpty.vue'
-import TodoAddItem from '../components/TodoAddItem.vue'
-import TodoList from '../components/TodoList.vue'
+import BasicLoading from '@/components/BasicLoading.vue'
+import TodoEmpty from '@/components/TodoEmpty.vue'
+import TodoAddItem from '@/components/TodoAddItem.vue'
+import TodoList from '@/components/TodoList.vue'
 
 import { ref } from 'vue'
 import { useStore } from 'vuex'
@@ -38,6 +37,7 @@ const onlyOpen = ref(false)
 
 loading.value = true
 store.dispatch('getTodos')
+const hasTodos = ref(store.getters.getAllTodos)
 loading.value = false
 </script>
 

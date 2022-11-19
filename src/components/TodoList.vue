@@ -1,7 +1,6 @@
 <template>
   <div class="todo-list">
-    <!-- <TodoItem v-for="todo in todos" :key="todo.id" :todo="todo"/> -->
-    <Item v-for="todo in todos" :key="todo.id" :todo="todo" />
+    <TodoItem v-for="todo in todos" :key="todo.id" :todo="todo" />
   </div>
 </template>
 
@@ -9,18 +8,18 @@
 import { PropType, ref, watchEffect } from 'vue'
 import { useStore } from 'vuex'
 import { Todo } from '../types/Todo'
-import Item from './Item.vue'
+import TodoItem from './TodoItem.vue'
 
 const props = defineProps({
   onlyOpen: {
-    type: Boolean as PropType<Boolean>,
+    type: Boolean as PropType<boolean>,
     default: false,
   },
 })
 
 const store = useStore()
 
-let todos = ref([] as Todo[])
+const todos = ref([] as Todo[])
 
 watchEffect(() => {
   if (props.onlyOpen) {

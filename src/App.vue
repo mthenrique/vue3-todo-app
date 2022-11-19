@@ -23,4 +23,16 @@
 // }
 </script>
 
-<style scoped lang="scss"></style>
+<style lang="scss">
+@use '@/styles/functions/color' as *;
+
+body {
+  background-color: color(dark);
+  color: color(light);
+
+  @media (prefers-color-scheme: dark) {
+    background-color: color(dark);
+    color: color(light);
+  }
+}
+</style>
