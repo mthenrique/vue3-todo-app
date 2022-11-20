@@ -9,7 +9,12 @@
     <span class="icon icon--delete" @click="deleteTodo">
       <IconDelete />
     </span>
-    <input type="text" v-model="title" @keyup.enter="updateTodo" />
+    <input
+      id="todoItem"
+      type="text"
+      v-model="title"
+      @keyup.enter="updateTodo"
+    />
   </div>
 </template>
 

@@ -8,7 +8,7 @@
       <TodoAddItem />
 
       <div class="options">
-        <input v-model="onlyOpen" type="checkbox" />
+        <input class="only-open" v-model="onlyOpen" type="checkbox" />
         <span>Exibir apenas tarefas em aberto.</span>
       </div>
 
