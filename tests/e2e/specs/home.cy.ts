@@ -38,20 +38,32 @@ describe('Home Page', () => {
     cy.get('.form-input').last().find('.icon--delete').click()
   })
 
-  it('should be able to filter for uncompleted tasks', () => {
-    const checkOffTask = 'Test check off task'
-
-    cy.get('#newTodo').should('be.visible')
-    cy.get('#newTodo').type(`${checkOffTask}{enter}`)
-    cy.get('input').last().should('have.value', checkOffTask)
-
-    cy.get('.form-input').last().find('.icon--check').click()
-
-    cy.get('.options').within(() => {
-      cy.contains('span', 'Exibir apenas tarefas em aberto.')
-      cy.get('.only-open').check()
+  context('with a checked task', () => {
+    beforeEach(() => {
+      //
+      cy.get('.options').within(() => {
+        cy.contains('span', 'Exibir apenas tarefas em aberto.')
+        cy.get('.only-open').check()
+      })
     })
 
-    cy.get('.icon').should('not.have.class', 'icon--done')
+    afterEach(() => {
+      cy.get('.options').within(() => {
+        cy.contains('span', 'Exibir apenas tarefas em aberto.')
+        cy.get('.only-open').uncheck()
+      })
+    })
+
+    it('should be able to filter for uncompleted tasks', () => {
+      const checkOffTask = 'Test check off task'
+
+      cy.get('#newTodo').should('be.visible')
+      cy.get('#newTodo').type(`${checkOffTask}{enter}`)
+      cy.get('input').last().should('have.value', checkOffTask)
+
+      cy.get('.form-input').last().find('.icon--check').click()
+
+      cy.get('.icon').should('not.have.class', 'icon--done')
+    })
   })
 })
