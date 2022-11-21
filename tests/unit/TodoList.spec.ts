@@ -1,11 +1,7 @@
-import { mount } from '@vue/test-utils'
-import TodoList from '../../src/components/TodoList.vue'
+/// <reference types='jest' />
 
-describe('TodoList', () => {
-  it('should display header text', () => {
-    const onlyOpen = true
-    const wrapper = mount(TodoList, { props: { onlyOpen } })
-
-    expect(wrapper).toEqual(true)
+describe('Test jest', () => {
+  it('Sum numbers', () => {
+    expect(1 + 1).toBe(2)
   })
 })
